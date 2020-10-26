@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:composite = "http://java.sun.com/jsf/composite">
+<composite:interface>
+</composite:interface>
+
+<composite:implementation>
+    <h2>Видання</h2>
+    <h:form>
+        <h:dataTable value="#{editionBean.editions}" var="edition" border="2" width="30%">
+            <h:column>
+                <f:facet name="header">Id</f:facet>
+                #{edition.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Назва</f:facet>
+                #{edition.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Місто</f:facet>
+                #{edition.city}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Операції</f:facet>
+                <h:commandLink action="#{editionBean.updateEdition(edition.id)}" value="update "/>
+                <h:commandLink action="#{editionBean.deleteEdition(edition.id)}" value=" delete"/>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</composite:implementation>
+</html>
