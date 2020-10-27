@@ -8,7 +8,7 @@ import javax.persistence.*;
 })
 public class Delivery {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
+    @Id @Column(name = "id")
     private int id;
     @Basic
     private String name;

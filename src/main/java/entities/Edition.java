@@ -2,9 +2,10 @@ package entities;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "edition")
-@SecondaryTable(name = "edition_city", pkJoinColumns = @PrimaryKeyJoinColumn(name = "edition_id"))
+@SecondaryTable(name = "edition_city")
 @NamedQueries({
         @NamedQuery(name = "Edition.findAll", query = "select e from Edition e")
 })
