@@ -19,4 +19,6 @@
     </param-name>
     <param-value>/WEB-INF/resources</param-value>
 </context-param>
+
+    <request-character-encoding>UTF-8</request-character-encoding>
 </web-app>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h = "http://java.sun.com/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core"
+      xmlns:composite = "http://java.sun.com/jsf/composite">
+
+<composite:interface>
+</composite:interface>
+
+<composite:implementation>
+    <h2>Блок редагування (Одержувач)</h2>
+    <h:form style="display: block;margin-left: auto;margin-right: auto;width: fit-content;">
+        <h:outputLabel value="ID: "/>
+        <h:selectOneMenu value="#{recipientBean.recipient.id}">
+            <f:selectItems value="#{recipientBean.selectedId}"/>
+        </h:selectOneMenu>
+        <br/>
+        <h:panelGrid columns = "2" id = "updatePanel">
+            <h:outputLabel>Ім'я: </h:outputLabel>
+            <h:inputText value="#{recipientBean.recipient.name}"/>
+            <h:outputLabel>Адреса: </h:outputLabel>
+            <h:inputText value="#{recipientBean.recipient.address}"/>
+        </h:panelGrid><br/>
+        <h:commandButton action = "#{recipientBean.updateRecipient(recipientBean.recipient)}"
+                         value = "UPDATE"/>
+    </h:form>
+</composite:implementation>
+</html>

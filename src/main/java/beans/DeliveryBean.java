@@ -1,14 +1,14 @@
 package beans;
 
 import dao.DeliveryDAO;
-import dao.RecipientDAO;
 import entities.Delivery;
-import entities.Recipient;
+
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
-import javax.persistence.EntityManager;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -27,12 +27,25 @@ public class DeliveryBean implements Serializable {
     public List<Delivery> getDeliveries(){
         return deliveryDAO.findAll();
     }
+    public List<Integer> getSelectedId(){
+        return deliveryDAO.selectDeliveryId();
+    }
 
-    public void updateDelivery(int id){
-        deliveryDAO.update();
+    public void updateDelivery(Delivery delivery){
+        deliveryDAO.update(delivery);
     }
 
     public void deleteDelivery(int id){
-        deliveryDAO.delete();
+        deliveryDAO.delete(id);
     }
+
+    public void addDelivery(Delivery delivery){
+        deliveryDAO.add(delivery);
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/index.xhtml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

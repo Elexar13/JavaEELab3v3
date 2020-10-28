@@ -13,7 +13,10 @@
     <h2>Доставка</h2>
     <h:form>
         <h:dataTable value="#{deliveryBean.deliveries}"
-                     var="delivery" border="2" width="30%">
+                     var="delivery" border="2" style="display: block;
+                                                        margin-left: auto;
+                                                        margin-right: auto;
+                                                        width: fit-content;">
             <h:column>
                 <f:facet name="header">Id</f:facet>
                 #{delivery.id}
@@ -23,9 +26,7 @@
                 #{delivery.name}
             </h:column>
             <h:column>
-                <f:facet name="header">Операції</f:facet>
-                <h:commandLink action="#{deliveryBean.updateDelivery(delivery.id)}" value="update "/>
-                <h:commandLink action="#{deliveryBean.deleteDelivery(delivery.id)}" value=" delete"/>
+                <h:commandLink action="#{deliveryBean.deleteDelivery(delivery.id)}" value="delete"/>
             </h:column>
         </h:dataTable>
     </h:form>

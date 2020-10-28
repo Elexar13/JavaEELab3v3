@@ -16,6 +16,7 @@ enum Status{
         @NamedQuery(name = "Order.findAll", query = "select o from Order o")
 })
 public class Order implements Serializable {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private int id;
     @OneToOne(fetch = FetchType.LAZY)

@@ -10,10 +10,13 @@
 </composite:interface>
 
 <composite:implementation>
-<h2>Одержувач</h2>
+    <h2>Одержувач</h2>
     <h:form>
         <h:dataTable value="#{recipientBean.recipients}"
-                     var="recipient" border="2" width="30%">
+                     var="recipient" border="2" style="display: block;
+                                                        margin-left: auto;
+                                                        margin-right: auto;
+                                                        width: fit-content;">
             <h:column>
                 <f:facet name="header">Id</f:facet>
                 #{recipient.id}
@@ -27,9 +30,7 @@
                 #{recipient.address}
             </h:column>
             <h:column>
-                <f:facet name="header">Операції</f:facet>
-                <h:commandLink action="#{recipientBean.updateRecipient(recipient.id)}" value="update "/>
-                <h:commandLink action="#{recipientBean.deleteRecipient(recipient.id)}" value=" delete"/>
+                <h:commandLink action="#{recipientBean.deleteRecipient(recipient.id)}" value="delete"/>
             </h:column>
         </h:dataTable>
     </h:form>

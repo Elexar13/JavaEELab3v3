@@ -1,6 +1,10 @@
 package entities;
 
+import validation.City;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -9,11 +13,16 @@ import javax.persistence.*;
 @NamedQueries({
         @NamedQuery(name = "Edition.findAll", query = "select e from Edition e")
 })
+@City
 public class Edition {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id @Column(name = "id")
+    @Id
+    @Column(name = "id")
     private int id;
-    @Basic @Column(name = "name")
+    @Basic
+    @NotNull @Pattern(regexp = "^[a-zA-Z \\u0400-\\u04FF]+")
+    @Size(max = 100, message = "Назва повинна містити до 100 символів")
+    @Column(name = "name")
     private String name;
     @Basic @Column(name = "city", table = "edition_city")
     private String city;

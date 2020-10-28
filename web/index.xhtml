@@ -9,12 +9,39 @@
 <f:view>
    <h:head>
       <title>Printed edition</title>
+      <meta content="text/html"/>
+      <style type="text/css">
+         .block{
+            display: grid;
+            grid-template-columns: 33% 33% 33%;
+            text-align: center;
+         }
+
+      </style>
    </h:head>
    <h:body>
-      <crud:selectRecipient />
-      <crud:selectEdition />
-      <crud:selectDelivery />
-      <crud:selectOrder />
+      <div class="block">
+         <div><crud:selectRecipient /></div>
+         <div><crud:selectEdition /></div>
+         <div><crud:selectDelivery /></div>
+      </div>
+
+      <div class="block">
+         <div><crud:updateRecipient /></div>
+         <div><crud:updateEdition /></div>
+         <div><crud:updateDelivery /></div>
+      </div>
+
+      <div class="block">
+         <div><crud:addRecipient /></div>
+         <div><crud:addEdition /></div>
+         <div><crud:addDelivery /></div>
+      </div>
+      <div>
+         <crud:selectOrder />
+      </div>
+
    </h:body>
 </f:view>
 </html>
+

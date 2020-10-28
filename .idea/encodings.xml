@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/src/main/java/beans/DeliveryBean.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/beans/EditionBean.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/beans/OrderBean.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/beans/RecipientBean.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/dao/DeliveryDAO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/dao/EditionDAO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/dao/OrderDAO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/dao/RecipientDAO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/entities/Delivery.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/entities/Edition.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/entities/Order.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/entities/Recipient.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

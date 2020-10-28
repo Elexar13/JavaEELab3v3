@@ -2,11 +2,14 @@ package beans;
 
 
 import dao.RecipientDAO;
+import entities.Edition;
 import entities.Recipient;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -26,11 +29,24 @@ public class RecipientBean implements Serializable {
         return recipientDAO.findAll();
     }
 
-    public void updateRecipient(int id){
-        recipientDAO.update();
+    public List<Integer> getSelectedId(){
+        return recipientDAO.selectRecipientId();
+    }
+
+    public void updateRecipient(Recipient recipient){
+            recipientDAO.update(recipient);
+    }
+
+    public void addRecipient(Recipient recipient){
+        recipientDAO.add(recipient);
     }
 
     public void deleteRecipient(int id){
-        recipientDAO.delete();
+        recipientDAO.delete(id);
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/index.xhtml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

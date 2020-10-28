@@ -29,11 +29,8 @@ public class OrderBean implements Serializable {
         return orderDAO.findAll();
     }
 
-    public void updateOrder(int id){
-        orderDAO.update();
+    public void deleteOrder(int id){
+        orderDAO.delete(id);
     }
 
-    public void deleteOrder(int id){
-        orderDAO.delete();
-    }
 }

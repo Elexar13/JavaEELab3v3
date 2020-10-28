@@ -12,7 +12,10 @@
 <composite:implementation>
     <h2>Видання</h2>
     <h:form>
-        <h:dataTable value="#{editionBean.editions}" var="edition" border="2" width="30%">
+        <h:dataTable value="#{editionBean.editions}" var="edition" border="2" style="display: block;
+                                                        margin-left: auto;
+                                                        margin-right: auto;
+                                                        width: fit-content;">
             <h:column>
                 <f:facet name="header">Id</f:facet>
                 #{edition.id}
@@ -26,9 +29,7 @@
                 #{edition.city}
             </h:column>
             <h:column>
-                <f:facet name="header">Операції</f:facet>
-                <h:commandLink action="#{editionBean.updateEdition(edition.id)}" value="update "/>
-                <h:commandLink action="#{editionBean.deleteEdition(edition.id)}" value=" delete"/>
+                <h:commandLink action="#{editionBean.deleteEdition(edition.id)}" value="delete"/>
             </h:column>
         </h:dataTable>
     </h:form>
