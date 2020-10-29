@@ -35,15 +35,11 @@ public class Order implements Serializable {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
 
-    public Recipient getRecipient() {
-        return recipient;
-    }
-
+    public Recipient getRecipient() {return recipient;}
     public void setRecipient(Recipient recipient) {
         this.recipient = new Recipient();
     }
@@ -51,7 +47,6 @@ public class Order implements Serializable {
     public Edition getEdition() {
         return edition;
     }
-
     public void setEdition(Edition edition) {
         this.edition = new Edition();
     }
@@ -59,7 +54,6 @@ public class Order implements Serializable {
     public Delivery getDelivery() {
         return delivery;
     }
-
     public void setDelivery(Delivery delivery) {
         this.delivery = new Delivery();
     }
@@ -67,7 +61,6 @@ public class Order implements Serializable {
     public Status getStatus() {
         return status;
     }
-
     public void setStatus(Status status) {
         this.status = status;
     }

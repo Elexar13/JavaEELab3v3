@@ -10,6 +10,7 @@
         <class>entities.Edition</class>
         <class>entities.Delivery</class>
         <class>entities.Recipient</class>
+        <class>entities.Order</class>
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="create"/>
         </properties>

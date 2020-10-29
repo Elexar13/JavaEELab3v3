@@ -41,6 +41,7 @@ public class OrderBean implements Serializable {
     public List<Integer> getRecipientId(){
         return orderDAO.selectRecipientId();
     }
+
     public List<Integer> getDeliveryId(){
         return orderDAO.selectDeliveryId();
     }
