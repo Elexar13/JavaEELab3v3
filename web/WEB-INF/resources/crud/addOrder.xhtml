@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:composite = "http://java.sun.com/jsf/composite">
+<composite:interface>
+</composite:interface>
+
+<composite:implementation>
+    <br/>
+    <br/>
+    <div style="display: block; margin-left: auto; margin-right: auto; width: fit-content; text-align: center">
+        <h2>Додати замовлення</h2>
+        <h:form>
+            <h:dataTable value="#{orderBean}" border="2">
+                <h:column>
+                    <f:facet name="header">Одержувач</f:facet>
+                    <h:selectOneMenu value="#{orderBean.order.recipient.id}">
+                        <f:selectItems value="#{orderBean.recipientId}"/>
+                    </h:selectOneMenu>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Видання</f:facet>
+                    <h:selectOneMenu value="#{orderBean.order.edition.id}">
+                        <f:selectItems value="#{orderBean.editionId}"/>
+                    </h:selectOneMenu>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Доставка</f:facet>
+                    <h:selectOneMenu value="#{orderBean.order.delivery.id}">
+                        <f:selectItems value="#{orderBean.deliveryId}"/>
+                    </h:selectOneMenu>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Статус</f:facet>
+                    <h:selectOneMenu value="#{orderBean.order.status}">
+                        <f:selectItems value="#{orderBean.statuses}"/>
+                    </h:selectOneMenu>
+                </h:column>
+                <h:column>
+                    <h:commandLink action="#{orderBean.addOrder(orderBean.order)}" value="add"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </div>
+
+</composite:implementation>
+</html>

@@ -2,13 +2,6 @@ package entities;
 import javax.persistence.*;
 import java.io.Serializable;
 
-enum Status{
-    AWAITINGVERIFICATION,
-    CONFIRMED,
-    SENT,
-    COMPLETED,
-    CANCELED
-}
 
 @Entity
 @Table(name = "orders")
@@ -21,16 +14,24 @@ public class Order implements Serializable {
     private int id;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "recipient_id")
-    private Recipient recipient;
+    private Recipient recipient = new Recipient();
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "edition_id")
-    private Edition edition;
+    private Edition edition = new Edition();
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "delivery_id")
-    private Delivery delivery;
+    private Delivery delivery = new Delivery();
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    public Order(){}
+
+    public Order(Order order){
+        this.recipient.setId(order.recipient.getId());
+        this.edition.setId(order.edition.getId());
+        this.delivery.setId(order.delivery.getId());
+        this.status = order.status;
+    }
     public int getId() {
         return id;
     }
@@ -44,7 +45,7 @@ public class Order implements Serializable {
     }
 
     public void setRecipient(Recipient recipient) {
-        this.recipient = recipient;
+        this.recipient = new Recipient();
     }
 
     public Edition getEdition() {
@@ -52,7 +53,7 @@ public class Order implements Serializable {
     }
 
     public void setEdition(Edition edition) {
-        this.edition = edition;
+        this.edition = new Edition();
     }
 
     public Delivery getDelivery() {
@@ -60,7 +61,7 @@ public class Order implements Serializable {
     }
 
     public void setDelivery(Delivery delivery) {
-        this.delivery = delivery;
+        this.delivery = new Delivery();
     }
 
     public Status getStatus() {
